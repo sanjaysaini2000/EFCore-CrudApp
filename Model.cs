@@ -1,6 +1,5 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 public class Member
 {
@@ -16,15 +15,13 @@ public class Book
     public string Gener { get; set; }
 }
 
-public class BookingContext : DbContext
+public class CrudAppDbContext : DbContext
 {
     public DbSet<Member> Members { get; set; }
     public DbSet<Book> Books { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFCore-CrudApp;Trusted_Connection=True;");
-        //string conString = ConfigurationManager.ConnectionStrings["EFCore-CrudAppDatabase"].ConnectionString;
-        //options.UseSqlServer(conString);
+        options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFCoreCrudAppDb;Trusted_Connection=True;");
     }
 }
