@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
@@ -22,6 +23,8 @@ public class BookingContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        options.UseSqlServer(ConfigurationManager.ConnectionStrings["BookingDatabase"].ConnectionString);
+        options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFCore-CrudApp;Trusted_Connection=True;");
+        //string conString = ConfigurationManager.ConnectionStrings["EFCore-CrudAppDatabase"].ConnectionString;
+        //options.UseSqlServer(conString);
     }
 }
